@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+    <head>
+
+    </head>
+    <body>
+
+        <h1>Google Maps Directions</h1>
+        <fieldset>
+            <legend>Google Maps API</legend>
+
+            <div class="field row">
+                <label for="api_key">API key</label>
+                <input id="api_key" type="text" value="" />
+            </div>
+            <p>You need a valid Google Maps Directions API key to enable this Homey app.</p>
+            <p>You can create your free API key through the <a target="_blank" href="https://console.developers.google.com/flows/enableapi?apiid=directions_backend&reusekey=true" title="Google Cloud platform">Google Cloud Platform</a>.
+            <p>For instructions on how to get your API key, follow this link:<br /><a target="_blank" href="https://developers.google.com/maps/documentation/directions/get-api-key#get-an-api-key">https://developers.google.com/maps/documentation/directions/get-api-key#get-an-api-key</a></p>
+
+        </fieldset>
+
+        <button class="right" onclick="save()">Save changes</button>
+
+        <script type="text/javascript">
+        function onHomeyReady(){
+            Homey.ready()
+        }
+
+        function save() {
+            Homey.set('api_key', document.getElementById('api_key').value);
+            Homey.alert( __('settings.settingsSaved'));
+        }
+        </script>
+
+    </body>
+</html>

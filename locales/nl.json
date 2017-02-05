@@ -1,0 +1,14 @@
+{
+	"resultsDriving": "De aanbevolen route is __summary__. De actuele reistijd is __duration_in_traffic__. Normaal gesproken is de reistijd __duration__. De afstand bedraagt __distance__.",
+	"resultsTransit": "De actuele reistijd via openbaar vervoer is __duration__. Vertrek om __departure_time__ uur. De route bestaat uit __steps__ delen.",
+	"resultsBicycling": "De fietsroute via __summary__ duurt naar verwachting __duration__. De afstand bedraagt __distance__.",
+	"resultsWalking": "De wandelroute via __summary__ duurt naar verwachting __duration__. De afstand bedraagt __distance__.",
+	"errorParsing": "Er is een fout opgetreden bij het ophalen van de routebeschrijving. De foutmelding is __status__.",
+	"errorDownloading": "Er is een fout opgetreden tijdens het downloaden van de routebeschrijving.",
+	"noApiKey": "Er is nog geen API key ingesteld via de instellingen van de applicatie",
+	"min": "minuten",
+	"km": "kilometer",
+	"settings": {
+		"settingsSaved": "De instellingen zijn opgeslagen."
+	}
+}

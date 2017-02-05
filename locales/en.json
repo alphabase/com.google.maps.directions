@@ -1,0 +1,14 @@
+{
+	"resultsDriving": "The recommended route is __summary__. The actual duration is __duration_in_traffic__. The normal duration is __duration__. The distance is __distance__.",
+	"resultsTransit": "The actual duration via transit is __duration__. You should depart at __departure_time__. The route exists of __steps__ steps.",
+	"resultsBicycling": "The cycling route via __summary__ will take approximately __duration__. The distance is __distance__.",
+	"resultsWalking": "The walking route via __summary__ will take approximately __duration__. The distance is __distance__.",
+	"errorParsing": "An error has occured while retrieving the directions. The error is __status__.",
+	"errorDownloading": "An error has occured while downloading the directions.",
+	"noApiKey": "No API key has been configured in the settings of the application.",
+	"min": "minutes",
+	"km": "kilometers",
+	"settings": {
+		"settingsSaved": "The settings have been saved."
+	}
+}
