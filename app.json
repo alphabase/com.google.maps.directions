@@ -19,6 +19,12 @@
         "name": "Gerard Nijboer",
         "email": "me@gerardnijboer.com"
     },
+	"contributors": {
+		"developers": [{
+			"name": "Jeroen Bos",
+			"email": "jeroenbos22@gmail.com"
+		}]
+	},
     "tags": {
     	"en": ["google", "maps", "directions", "route", "distance", "duration", "car", "transit", "cycling", "walking", "traffic"],
     	"nl": ["google", "maps", "navigatie", "route", "afstand", "reistijd", "auto", "openbaar vervoer", "fietsen", "wandelen", "file"]
