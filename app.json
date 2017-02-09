@@ -20,14 +20,16 @@
         "email": "me@gerardnijboer.com"
     },
 	"contributors": {
-		"developers": [{
-			"name": "Jeroen Bos",
-			"email": "jeroenbos22@gmail.com"
-		}]
+		"developers": [
+			{
+				"name": "Jeroen Bos",
+				"email": "jeroenbos22@gmail.com"
+			}
+		]
 	},
     "tags": {
-    	"en": ["google", "maps", "directions", "route", "distance", "duration", "car", "transit", "cycling", "walking", "traffic"],
-    	"nl": ["google", "maps", "navigatie", "route", "afstand", "reistijd", "auto", "openbaar vervoer", "fietsen", "wandelen", "file"]
+    	"en": ["google", "maps", "directions", "route", "distance", "duration", "car", "driving", "traffic", "traffic jam"],
+    	"nl": ["google", "maps", "navigatie", "route", "afstand", "reistijd", "auto", "rijden", "verkeer", "file"]
     },
     "permissions": [
 		"homey:manager:speech-output",
@@ -36,7 +38,7 @@
 	"flow": {
 		"triggers": [
 			{
-				"id": "com_google_maps_trigger",
+				"id": "com_google_maps_directions_workDetailsUpdated",
 				"title": {
 					"nl": "De reistijd naar werk is bijgewerkt",
 					"en": "The traveling time to work was updated"
@@ -108,82 +110,7 @@
 				]
 			},
 			{
-				"id": "com_google_maps_directions_transit",
-				"title": {
-					"nl": "Bereken reistijd via openbaar vervoer",
-					"en": "Determine duration via transit"
-				},
-				"args": [
-					{
-						"name": "origin",
-						"type": "text",
-						"placeholder": {
-							"en": "Origin",
-							"nl": "Vertrekpunt"
-						}
-					},
-					{
-						"name": "destination",
-						"type": "text",
-						"placeholder": {
-							"en": "Destination",
-							"nl": "Bestemming"
-						}
-					}
-				]
-			},
-			{
-				"id": "com_google_maps_directions_bicycling",
-				"title": {
-					"nl": "Bereken reistijd via fietsen",
-					"en": "Determine duration via cycling"
-				},
-				"args": [
-					{
-						"name": "origin",
-						"type": "text",
-						"placeholder": {
-							"en": "Origin",
-							"nl": "Vertrekpunt"
-						}
-					},
-					{
-						"name": "destination",
-						"type": "text",
-						"placeholder": {
-							"en": "Destination",
-							"nl": "Bestemming"
-						}
-					}
-				]
-			},
-			{
-				"id": "com_google_maps_directions_walking",
-				"title": {
-					"nl": "Bereken reistijd via wandelen",
-					"en": "Determine duration via walking"
-				},
-				"args": [
-					{
-						"name": "origin",
-						"type": "text",
-						"placeholder": {
-							"en": "Origin",
-							"nl": "Vertrekpunt"
-						}
-					},
-					{
-						"name": "destination",
-						"type": "text",
-						"placeholder": {
-							"en": "Destination",
-							"nl": "Bestemming"
-						}
-					}
-				]
-			},
-			{
-				"id": "com_google_maps_directions_driving_to_work",
+				"id": "com_google_maps_directions_updateWorkDetails",
 				"title": {
 					"nl": "Reistijd naar werk bijwerken",
 					"en": "Update traveling time to work"

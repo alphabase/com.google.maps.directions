@@ -25,50 +25,8 @@ Homey.manager('flow').on('action.com_google_maps_directions_driving', function(c
 	callback(null, true);
 });
 
-// Transit instructions
-Homey.manager('flow').on('action.com_google_maps_directions_transit', function(callback, args) {
-	getRoute(args.origin, args.destination, 'transit', function(err, data) {
-		if (!err) {
-			var duration = data.routes[0].legs[0].duration.text.replace('min', __('min'));
-			var departure_time = data.routes[0].legs[0].departure_time.text;
-			var steps = data.routes[0].legs[0].steps.length;
-			
-			Homey.manager('speech-output').say(__('resultsTransit', {'duration': duration, 'departure_time': departure_time, 'steps': steps}));
-		}
-	});
-	callback(null, true);
-});
-
-// Bicyling instructions
-Homey.manager('flow').on('action.com_google_maps_directions_bicycling', function(callback, args) {
-	getRoute(args.origin, args.destination, 'bicycling', function(err, data) {
-		if (!err) {
-			var summary = data.routes[0].summary;
-			var duration = data.routes[0].legs[0].duration.text.replace('min', __('min'));
-			var distance = data.routes[0].legs[0].distance.text.replace('km', __('km'));
-			
-			Homey.manager('speech-output').say(__('resultsBicycling', {'summary': summary, 'duration': duration, 'distance': distance}));
-		}
-	});
-	callback(null, true);
-});
-
-// Walking instructions
-Homey.manager('flow').on('action.com_google_maps_directions_walking', function(callback, args) {
-	getRoute(args.origin, args.destination, 'walking', function(err, data) {
-		if (!err) {
-			var summary = data.routes[0].summary;
-			var duration = data.routes[0].legs[0].duration.text.replace('min', __('min'));
-			var distance = data.routes[0].legs[0].distance.text.replace('km', __('km'));
-			
-			Homey.manager('speech-output').say(__('resultsWalking', {'summary': summary, 'duration': duration, 'distance': distance}));
-		}
-	});
-	callback(null, true);
-});
-
 // Update details to work
-Homey.manager('flow').on('action.com_google_maps_directions_driving_to_work', function(callback, args) {
+Homey.manager('flow').on('action.com_google_maps_directions_updateWorkDetails', function(callback, args) {
 	Homey.manager('geolocation').getLocation(function(err, location) {
 		getRoute(location.latitude + ',' + location.longitude, Homey.manager('settings').get('work_address'), 'driving', function(err, data) {
 			if (!err) {
@@ -82,7 +40,7 @@ Homey.manager('flow').on('action.com_google_maps_directions_driving_to_work', fu
 				tokens['duration'].setValue(duration, function(err) { if (err) console.error('setValue error:', err); });
 				tokens['distance'].setValue(distance, function(err) { if (err) console.error('setValue error:', err); });
 				
-				Homey.manager('flow').trigger('com_google_maps_trigger', {
+				Homey.manager('flow').trigger('com_google_maps_directions_workDetailsUpdated', {
 					"summary": summary,
 					"duration_in_traffic": duration_in_traffic,
 					"duration": duration,
