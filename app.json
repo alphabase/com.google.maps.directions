@@ -30,9 +30,57 @@
     	"nl": ["google", "maps", "navigatie", "route", "afstand", "reistijd", "auto", "openbaar vervoer", "fietsen", "wandelen", "file"]
     },
     "permissions": [
-		"homey:manager:speech-output"
+		"homey:manager:speech-output",
+		"homey:manager:geolocation"
 	],
 	"flow": {
+		"triggers": [
+			{
+				"id": "com_google_maps_trigger",
+				"title": {
+					"nl": "De reistijd naar werk is bijgewerkt",
+					"en": "The traveling time to work was updated"
+				},
+				"tokens": [
+					{
+						"name": "summary",
+						"type": "string",
+						"title": {
+							"en": "Summary",
+							"nl": "Samenvatting"
+						},
+						"example": "Route 66"
+					},
+					{
+						"name": "duration_in_traffic",
+						"type": "number",
+						"title": {
+							"en": "Duration in traffic",
+							"nl": "Reistijd met verkeer"
+						},
+						"example": 56
+					},
+					{
+						"name": "duration",
+						"type": "number",
+						"title": {
+							"en": "Duration",
+							"nl": "Reistijd"
+						},
+						"example": 53
+					},
+					{
+						"name": "distance",
+						"type": "number",
+						"title": {
+							"en": "Distance",
+							"nl": "Afstand"
+						},
+						"example": 83
+					}
+				]
+			}
+		],
 		"actions": [
 			{
 				"id": "com_google_maps_directions_driving",
@@ -133,6 +181,13 @@
 						}
 					}
 				]
+			},
+			{
+				"id": "com_google_maps_directions_driving_to_work",
+				"title": {
+					"nl": "Reistijd naar werk bijwerken",
+					"en": "Update traveling time to work"
+				}
 			}
 		]
 	}

@@ -1,11 +1,10 @@
 <!doctype html>
 <html>
-    <head>
-
-    </head>
+	<head></head>
     <body>
 
         <h1>Google Maps Directions</h1>
+        
         <fieldset>
             <legend>Google Maps API</legend>
 
@@ -13,12 +12,27 @@
                 <label for="api_key">API key</label>
                 <input id="api_key" type="text" value="" />
             </div>
-            <div class="field row">
-                <input id="enable_speech" type="checkbox" value="1" /> Enable speech
-            </div>
+            
             <p>You need a valid Google Maps Directions API key to enable this Homey app.</p>
             <p>You can create your free API key through the <a target="_blank" href="https://console.developers.google.com/flows/enableapi?apiid=directions_backend&reusekey=true" title="Google Cloud platform">Google Cloud Platform</a>.
             <p>For instructions on how to get your API key, follow this link:<br /><a target="_blank" href="https://developers.google.com/maps/documentation/directions/get-api-key#get-an-api-key">https://developers.google.com/maps/documentation/directions/get-api-key#get-an-api-key</a></p>
+
+        </fieldset>
+        
+        <fieldset>
+        	<legend>Work address</legend>
+        	
+        	<div class="field row">
+				<label for="work_address">Work address</label>
+				<input id="work_address" type="text" value="" />
+        	</div>
+        	<p>Setting your work address here will provide you with tags containing actual traveling details. The transport mode used will be "driving".</p>
+        	<ul>
+        		<li>summary</li>
+        		<li>duration_in_traffic</li>
+        		<li>duration</li>
+        		<li>distance</li>
+        	</ul>
 
         </fieldset>
 
@@ -30,26 +44,21 @@
             Homey.get('api_key', function(err, api_key){
                 if( err ) return console.error('Could not get api_key', err);
                 if (typeof api_key != 'undefined')  {
-                    document.getElementById("api_key").value = api_key;
+                    document.getElementById('api_key').value = api_key;
                 }
             });
-            document.getElementById("enable_speech").checked = true; 
-            Homey.get('enable_speech', function(err, enable_speech){
-                if( err ) return console.error('Could not get enable_speech', err);
-                if (typeof enable_speech != 'undefined')  {
-                    if (enable_speech) {
-                        document.getElementById("enable_speech").checked = true;   
-                    } else {
-                        document.getElementById("enable_speech").checked = false;   
-                    }
+            Homey.get('work_address', function(err, work_address){
+                if( err ) return console.error('Could not et work_address', err);
+                if (typeof work_address != 'undefined')  {
+                    document.getElementById('work_address').value = work_address;
                 }
             });
         }
 
         function save() {
             Homey.set('api_key', document.getElementById('api_key').value);
-            Homey.set('enable_speech', document.getElementById("enable_speech").checked);
-            Homey.alert( __('settings.settingsSaved'));
+            Homey.set('work_address', document.getElementById('work_address').value);
+            Homey.alert(__('settings.settingsSaved'));
         }
         </script>
 

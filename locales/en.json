@@ -5,10 +5,17 @@
 	"resultsWalking": "The walking route via __summary__ will take approximately __duration__. The distance is __distance__.",
 	"errorParsing": "An error has occured while retrieving the directions. The error is __status__.",
 	"errorDownloading": "An error has occured while downloading the directions.",
+	"errorUnexpected": "An unexpected error has occured",
 	"noApiKey": "No API key has been configured in the settings of the application.",
 	"min": "minutes",
 	"km": "kilometers",
 	"settings": {
 		"settingsSaved": "The settings have been saved."
+	},
+	"tokens": {
+		"summary": "Summary",
+		"duration_in_traffic": "Duration in traffic",
+		"duration": "Duration",
+		"distance": "Distance"
 	}
 }

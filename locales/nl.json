@@ -5,10 +5,17 @@
 	"resultsWalking": "De wandelroute via __summary__ duurt naar verwachting __duration__. De afstand bedraagt __distance__.",
 	"errorParsing": "Er is een fout opgetreden bij het ophalen van de routebeschrijving. De foutmelding is __status__.",
 	"errorDownloading": "Er is een fout opgetreden tijdens het downloaden van de routebeschrijving.",
+	"errorUnexpected": "Er heeft zich een onvoorziene fout voorgedaan.",
 	"noApiKey": "Er is nog geen API key ingesteld via de instellingen van de applicatie",
 	"min": "minuten",
 	"km": "kilometer",
 	"settings": {
 		"settingsSaved": "De instellingen zijn opgeslagen."
+	},
+	"tokens": {
+		"summary": "Samenvatting",
+		"duration_in_traffic": "Reistijd met verkeer",
+		"duration": "Reistijd",
+		"distance": "Afstand"
 	}
 }
