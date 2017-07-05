@@ -1,8 +1,9 @@
 # Google Maps Directions
 
 Never be late for work by starting your day with actual traveling time.
-This app has two action cards:
-- One to tell you about any traveling details from one address to another
+This app has three action cards:
+- One to tell you about traveling details by car from one address to another
+- One to tell you about traveling details by public transport from one address to another
 - One to update the traveling details to a preset work address
 
 The updated traveling details to the work address will be available as tokens in the flow engine.

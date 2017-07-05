@@ -14,12 +14,17 @@ function init() {
 Homey.manager('flow').on('action.com_google_maps_directions_driving', function(callback, args) {
 	getRoute(args.origin, args.destination, 'driving', function(err, data) {
 		if (!err) {
-			var summary = data.routes[0].summary;
-			var duration_in_traffic = data.routes[0].legs[0].duration_in_traffic.text.replace('min', __('min'));
-			var duration = data.routes[0].legs[0].duration.text.replace('min', __('min'));
-			var distance = data.routes[0].legs[0].distance.text.replace('km', __('km'));
-			
-			Homey.manager('speech-output').say(__('resultsDriving', {'summary': summary, 'duration_in_traffic': duration_in_traffic, 'distance': distance, 'duration': duration}));	
+			Homey.manager('speech-output').say(__('resultsDriving', {'summary': data.summary, 'duration_in_traffic': data.duration_in_traffic, 'distance': data.distance, 'duration': data.duration}));	
+		}
+	});
+	callback(null, true);
+});
+
+//Transit instructions
+Homey.manager('flow').on('action.com_google_maps_directions_transit', function(callback, args) {
+	getRoute(args.origin, args.destination, 'transit', function(err, data) {
+		if (!err) {
+			Homey.manager('speech-output').say(__('resultsTransit', {'duration': data.duration, 'departure_time': data.departure_time, 'steps': data.steps}));
 		}
 	});
 	callback(null, true);
@@ -30,21 +35,16 @@ Homey.manager('flow').on('action.com_google_maps_directions_updateWorkDetails', 
 	Homey.manager('geolocation').getLocation(function(err, location) {
 		getRoute(location.latitude + ',' + location.longitude, Homey.manager('settings').get('work_address'), 'driving', function(err, data) {
 			if (!err) {
-				var summary = data.routes[0].summary;
-				var duration_in_traffic = Math.ceil(data.routes[0].legs[0].duration_in_traffic.value / 60);
-				var duration = Math.ceil(data.routes[0].legs[0].duration.value / 60);
-				var distance = Math.ceil(data.routes[0].legs[0].distance.value / 1000);
-				
-				tokens['summary'].setValue(summary, function(err) { if (err) console.error('setValue error:', err); });
-				tokens['duration_in_traffic'].setValue(duration_in_traffic, function(err) { if (err) console.error('setValue error:', err); });
-				tokens['duration'].setValue(duration, function(err) { if (err) console.error('setValue error:', err); });
-				tokens['distance'].setValue(distance, function(err) { if (err) console.error('setValue error:', err); });
+				tokens['summary'].setValue(data.summary, function(err) { if (err) console.error('setValue error:', err); });
+				tokens['duration_in_traffic'].setValue(data.duration_in_traffic, function(err) { if (err) console.error('setValue error:', err); });
+				tokens['duration'].setValue(data.duration, function(err) { if (err) console.error('setValue error:', err); });
+				tokens['distance'].setValue(data.distance, function(err) { if (err) console.error('setValue error:', err); });
 				
 				Homey.manager('flow').trigger('com_google_maps_directions_workDetailsUpdated', {
-					"summary": summary,
-					"duration_in_traffic": duration_in_traffic,
-					"duration": duration,
-					"distance": distance
+					"summary": data.summary,
+					"duration_in_traffic": data.duration_in_traffic,
+					"duration": data.duration,
+					"distance": data.distance
 				});
 			} else {
 				Homey.manager('speech-output').say(__('errorUnexpected'));
@@ -91,6 +91,18 @@ function getRoute(origin, destination, mode, callback) {
 				var parsed = JSON.parse(body);
 				// Make sure the Google API returned the OK-status
 				if (parsed.status == "OK") {
+					parsed.duration = Math.ceil(parsed.routes[0].legs[0].duration.value / 60);
+					// Handle specifiek parameters that are concerned with driving
+					if (mode == 'driving') {
+						parsed.summary = parsed.routes[0].summary;
+						parsed.duration_in_traffic = Math.ceil(parsed.routes[0].legs[0].duration_in_traffic.value / 60);
+						parsed.distance = Math.ceil(parsed.routes[0].legs[0].distance.value / 1000);
+					}
+					// Handle specifiek parameters that are concerned with transit
+					if (mode == 'transit') {
+						parsed.departure_time = parsed.routes[0].legs[0].departure_time.text;
+						parsed.steps = parsed.routes[0].legs[0].steps.length;
+					}
 					callback(null, parsed);
 				} else {
 					Homey.manager('speech-output').say(__('errorParsing', {'status': parsed.status}));

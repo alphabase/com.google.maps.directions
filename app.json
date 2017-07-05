@@ -13,7 +13,7 @@
 		"small": "./assets/images/small.jpg"
 	},
 	"category": ["internet","localization"],
-    "version": "1.0.1",
+    "version": "1.0.2",
     "compatibility": "1.x",
     "author": {
         "name": "Gerard Nijboer",
@@ -28,8 +28,8 @@
 		]
 	},
     "tags": {
-    	"en": ["google", "maps", "directions", "route", "distance", "duration", "car", "driving", "traffic", "traffic jam"],
-    	"nl": ["google", "maps", "navigatie", "route", "afstand", "reistijd", "auto", "rijden", "verkeer", "file"]
+    	"en": ["google", "maps", "directions", "route", "distance", "duration", "car", "transit", "driving", "traffic", "traffic jam"],
+    	"nl": ["google", "maps", "navigatie", "route", "afstand", "reistijd", "auto", "openbaar vervoer", "rijden", "verkeer", "file"]
     },
     "permissions": [
 		"homey:manager:speech-output",
@@ -89,6 +89,31 @@
 				"title": {
 					"nl": "Bereken reistijd via auto",
 					"en": "Determine duration via driving"
+				},
+				"args": [
+					{
+						"name": "origin",
+						"type": "text",
+						"placeholder": {
+							"en": "Origin",
+							"nl": "Vertrekpunt"
+						}
+					},
+					{
+						"name": "destination",
+						"type": "text",
+						"placeholder": {
+							"en": "Destination",
+							"nl": "Bestemming"
+						}
+					}
+				]
+			},
+  			{
+				"id": "com_google_maps_directions_transit",
+				"title": {
+					"nl": "Bereken reistijd via openbaar vervoer",
+					"en": "Determine duration via transit"
 				},
 				"args": [
 					{
