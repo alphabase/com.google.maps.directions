@@ -14,7 +14,27 @@ class GoogleMaps extends Homey.App {
 				this.getRoute(args.origin, args.destination, 'driving', function(err, data) {
 					if (!err) {
 						Homey.ManagerSpeechOutput.say(Homey.__('resultsDriving', {'summary': data.summary, 'duration_in_traffic': data.duration_in_traffic, 'distance': data.distance, 'duration': data.duration}));
-						return Promise.resolve( data.duration_in_traffic );
+
+						let tokens = {
+							summary: data.summary,
+							duration_in_traffic: data.duration_in_traffic,
+							duration: data.duration,
+							distance: data.distance,
+						};
+
+						let globalDuration = new Homey.FlowToken( 'googlemaps_duration', {
+							type: 'number',
+							title: 'Google Maps ' + Homey.__('tokens.duration')
+						});
+						globalDuration.register()
+							.then(() => {
+								return globalDuration.setValue( data.duration );
+							})
+							.catch( err => {
+								parent.error( err );
+							});
+
+						return Promise.resolve( data.duration );
 					}
 				});
 
@@ -30,6 +50,24 @@ class GoogleMaps extends Homey.App {
 				this.getRoute(args.origin, args.destination, 'transit', function(err, data) {
 					if (!err) {
 						Homey.Homey.ManagerSpeechOutput.say(Homey.__('resultsTransit', {'duration': data.duration, 'departure_time': data.departure_time, 'steps': data.steps}));
+						let tokens = {
+							departure_time: data.departure_time,
+							steps: data.steps,
+							duration: data.duration,
+						};
+
+						let globalDuration = new Homey.FlowToken( 'googlemaps_duration', {
+							type: 'number',
+							title: 'Google Maps ' + Homey.__('tokens.duration')
+						});
+						globalDuration.register()
+							.then(() => {
+								return globalDuration.setValue( data.duration );
+							})
+							.catch( err => {
+								parent.error( err );
+							});
+
 						return Promise.resolve( data.duration );
 					}
 				});
@@ -38,8 +76,56 @@ class GoogleMaps extends Homey.App {
 
 			});
 
-		let updateDetails = new Homey.FlowCardAction('com_google_maps_directions_updateWorkDetails');
-		updateDetails
+		let updateHomeDetails = new Homey.FlowCardAction('com_google_maps_directions_updateHomeDetails');
+		updateHomeDetails
+			.register()
+			.registerRunListener(( args, state ) => {
+
+				const latitude = Homey.ManagerGeolocation.getLatitude();
+				const longitude = Homey.ManagerGeolocation.getLongitude();
+				this.getRoute(Homey.ManagerSettings.get('work_address'), latitude + ',' + longitude, (args.mode === undefined ? 'driving' : args.mode), function(err, data) {
+					if (!err) {
+						let workDetailsUpdated = new Homey.FlowCardTrigger('com_google_maps_directions_workDetailsUpdated');
+
+						let tokens = {};
+
+						if (args.mode === 'transit')
+						{
+							tokens = {
+								departure_time: data.departure_time,
+								steps: data.steps,
+								duration: data.duration,
+							};
+						}
+						else
+						{
+							tokens = {
+								summary: data.summary,
+								duration_in_traffic: data.duration_in_traffic,
+								duration: data.duration,
+								distance: data.distance,
+							};
+						}
+
+
+
+						workDetailsUpdated
+							.register()
+							.trigger(tokens)
+							.catch( parent.error )
+							.then( parent.log );
+						return Promise.resolve([tokens]);
+					} else {
+						Homey.ManagerSpeechOutput.say(Homey.__('errorUnexpected'));
+					}
+				});
+
+				return Promise.resolve();
+
+			});
+
+		let updateWorkDetails = new Homey.FlowCardAction('com_google_maps_directions_updateWorkDetails');
+		updateWorkDetails
 			.register()
 			.registerRunListener(( args, state ) => {
 
@@ -76,13 +162,13 @@ class GoogleMaps extends Homey.App {
 							.trigger(tokens)
 							.catch( parent.error )
 							.then( parent.log );
-						// return Promise.resolve(data.duration);
+						return Promise.resolve([tokens]);
 					} else {
 						Homey.ManagerSpeechOutput.say(Homey.__('errorUnexpected'));
 					}
 				});
 
-				//return Promise.resolve(0);
+				return Promise.resolve();
 
 			});
 	}

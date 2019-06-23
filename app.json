@@ -197,6 +197,43 @@
 						]
 					}
 				]
+			},
+			{
+				"id": "com_google_maps_directions_updateWorkDetails",
+				"title": {
+					"nl": "Reistijd naar werk bijwerken",
+					"en": "Update traveling time to work"
+				},
+				"deprecated": true
+			},
+			{
+				"id": "com_google_maps_directions_updateHomeDetails",
+				"title": {
+					"nl": "Reistijd naar huis bijwerken",
+					"en": "Update traveling time to home"
+				},
+				"args": [
+					{
+						"type": "dropdown",
+						"name": "mode",
+						"values": [
+							{
+								"id": "driving",
+								"label": {
+									"en": "car",
+									"nl": "auto"
+								}
+							},
+							{
+								"id": "transit",
+								"label": {
+									"en": "transit",
+									"nl": "openbaar vervoer"
+								}
+							}
+						]
+					}
+				]
 			}
 		]
 	}
