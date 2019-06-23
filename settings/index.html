@@ -1,60 +1,63 @@
 <!doctype html>
 <html>
-	<head></head>
-    <body>
+<head>
+    <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
+</head>
+<body>
 
-        <h1>Google Maps Directions</h1>
-        
-        <fieldset>
-            <legend>Google Maps API</legend>
+<h1>Google Maps Directions</h1>
 
-            <div class="field row">
-                <label for="api_key">API key</label>
-                <input id="api_key" type="text" value="" />
-            </div>
-            
-            <p>You need a valid Google Maps Directions API key to enable this Homey app.</p>
-            <p>You can create your free API key through the <a target="_blank" href="https://console.developers.google.com/flows/enableapi?apiid=directions_backend&reusekey=true" title="Google Cloud platform">Google Cloud Platform</a>.
-            <p>For instructions on how to get your API key, follow this link:<br /><a target="_blank" href="https://developers.google.com/maps/documentation/directions/get-api-key#get-an-api-key">https://developers.google.com/maps/documentation/directions/get-api-key#get-an-api-key</a></p>
+<fieldset>
+    <legend>Google Maps API</legend>
 
-        </fieldset>
-        
-        <fieldset>
-        	<legend>Work address</legend>
-        	
-        	<div class="field row">
-				<label for="work_address">Work address</label>
-				<input id="work_address" type="text" value="" />
-        	</div>
-        	<p>Setting your work address here will provide you with tags containing actual traveling details. The transport mode used will be "driving".</p>
+    <div class="field row">
+        <label for="api_key">API key</label>
+        <input id="api_key" type="text" value=""/>
+    </div>
 
-        </fieldset>
+    <p><a target="_blank"
+                                                        href="https://console.developers.google.com/flows/enableapi?apiid=directions_backend&reusekey=true"
+          title="Google Cloud platform">Click here to get an valid api key.</a></p>
 
-        <button class="right" onclick="save()">Save changes</button>
+</fieldset>
 
-        <script type="text/javascript">
-        function onHomeyReady(){
-            Homey.ready();
-            Homey.get('api_key', function(err, api_key){
-                if( err ) return console.error('Could not get api_key', err);
-                if (typeof api_key != 'undefined')  {
-                    document.getElementById('api_key').value = api_key;
-                }
-            });
-            Homey.get('work_address', function(err, work_address){
-                if( err ) return console.error('Could not et work_address', err);
-                if (typeof work_address != 'undefined')  {
-                    document.getElementById('work_address').value = work_address;
-                }
-            });
-        }
+<fieldset>
+    <legend>Work address</legend>
 
-        function save() {
-            Homey.set('api_key', document.getElementById('api_key').value);
-            Homey.set('work_address', document.getElementById('work_address').value);
-            Homey.alert(__('settings.settingsSaved'));
-        }
-        </script>
+    <div class="field row">
+        <label for="work_address">Work address</label>
+        <input id="work_address" type="text" value=""/>
+    </div>
+    <p>Setting your work address here will provide you with tags containing actual traveling details. The transport mode
+        used will be "driving".</p>
 
-    </body>
+</fieldset>
+
+<button class="right" onclick="save()">Save changes</button>
+
+<script type="text/javascript">
+    function onHomeyReady() {
+        Homey.ready();
+        Homey.get('api_key', function (err, api_key) {
+            if (err) return console.error('Could not get api_key', err);
+            if (typeof api_key != 'undefined') {
+                document.getElementById('api_key').value = api_key;
+            }
+        });
+        Homey.get('work_address', function (err, work_address) {
+            if (err) return console.error('Could not et work_address', err);
+            if (typeof work_address != 'undefined') {
+                document.getElementById('work_address').value = work_address;
+            }
+        });
+    }
+
+    function save() {
+        Homey.set('api_key', document.getElementById('api_key').value);
+        Homey.set('work_address', document.getElementById('work_address').value);
+        Homey.alert(__('settings.settingsSaved'));
+    }
+</script>
+
+</body>
 </html>

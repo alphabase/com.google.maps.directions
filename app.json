@@ -1,5 +1,6 @@
 {
     "id": "com.google.maps.directions",
+	"sdk": 2,
     "name": {
         "en": "Google Maps",
         "nl": "Google Maps"
@@ -13,8 +14,8 @@
 		"small": "./assets/images/small.jpg"
 	},
 	"category": ["internet","localization"],
-    "version": "1.0.4",
-    "compatibility": "1.x",
+    "version": "1.0.5",
+    "compatibility": ">=1.5.0",
     "author": {
         "name": "Gerard Nijboer",
         "email": "me@gerardnijboer.com"
@@ -28,6 +29,10 @@
 			{
 				"name": "Jeroen Bos",
 				"email": "jeroenbos22@gmail.com"
+			},
+			{
+				"name": "Stèphan Eizinga",
+				"email": "stephan@monkeysoft.nl"
 			}
 		]
 	},
@@ -91,6 +96,24 @@
 							"nl": "Afstand"
 						},
 						"example": 83
+					},
+					{
+						"name": "departure_time",
+						"type": "number",
+						"title": {
+							"en": "Departure time",
+							"nl": "Vertrek tijd"
+						},
+						"example": 83
+					},
+					{
+						"name": "steps",
+						"type": "number",
+						"title": {
+							"en": "steps",
+							"nl": "Tussenstops"
+						},
+						"example": 83
 					}
 				]
 			}
@@ -151,7 +174,29 @@
 				"title": {
 					"nl": "Reistijd naar werk bijwerken",
 					"en": "Update traveling time to work"
-				}
+				},
+				"args": [
+					{
+						"type": "dropdown",
+						"name": "mode",
+						"values": [
+							{
+								"id": "driving",
+								"label": {
+									"en": "car",
+									"nl": "auto"
+								}
+							},
+							{
+								"id": "transit",
+								"label": {
+									"en": "transit",
+									"nl": "openbaar vervoer"
+								}
+							}
+						]
+					}
+				]
 			}
 		]
 	}
