@@ -336,58 +336,6 @@
 		],
 		"actions": [
 			{
-				"deprecated": true,
-				"id": "com_google_maps_directions_driving",
-				"title": {
-					"nl": "Bereken reistijd via auto",
-					"en": "Determine duration via driving"
-				},
-				"args": [
-					{
-						"name": "origin",
-						"type": "text",
-						"placeholder": {
-							"en": "Origin",
-							"nl": "Vertrekpunt"
-						}
-					},
-					{
-						"name": "destination",
-						"type": "text",
-						"placeholder": {
-							"en": "Destination",
-							"nl": "Bestemming"
-						}
-					}
-				]
-			},
-  			{
-				"deprecated": true,
-				"id": "com_google_maps_directions_transit",
-				"title": {
-					"nl": "Bereken reistijd via openbaar vervoer",
-					"en": "Determine duration via transit"
-				},
-				"args": [
-					{
-						"name": "origin",
-						"type": "text",
-						"placeholder": {
-							"en": "Origin",
-							"nl": "Vertrekpunt"
-						}
-					},
-					{
-						"name": "destination",
-						"type": "text",
-						"placeholder": {
-							"en": "Destination",
-							"nl": "Bestemming"
-						}
-					}
-				]
-			},
-			{
 				"id": "com_google_maps_directions_driving",
 				"title": {
 					"nl": "Bereken reistijd via auto",
@@ -505,14 +453,6 @@
 						]
 					}
 				]
-			},
-			{
-				"id": "com_google_maps_directions_updateWorkDetails",
-				"title": {
-					"nl": "Reistijd naar werk bijwerken",
-					"en": "Update traveling time to work"
-				},
-				"deprecated": true
 			},
 			{
 				"id": "com_google_maps_directions_updateHomeDetails",
