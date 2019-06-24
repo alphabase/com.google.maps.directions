@@ -116,6 +116,222 @@
 						"example": 83
 					}
 				]
+			},
+			{
+				"id": "com_google_maps_directions_homeDetailsUpdated",
+				"title": {
+					"nl": "De reistijd naar huis is bijgewerkt",
+					"en": "The traveling time to home was updated"
+				},
+				"tokens": [
+					{
+						"name": "summary",
+						"type": "string",
+						"title": {
+							"en": "Summary",
+							"nl": "Samenvatting"
+						},
+						"example": "Route 66"
+					},
+					{
+						"name": "duration_in_traffic",
+						"type": "number",
+						"title": {
+							"en": "Duration in traffic",
+							"nl": "Reistijd met verkeer"
+						},
+						"example": 56
+					},
+					{
+						"name": "duration",
+						"type": "number",
+						"title": {
+							"en": "Duration",
+							"nl": "Reistijd"
+						},
+						"example": 53
+					},
+					{
+						"name": "distance",
+						"type": "number",
+						"title": {
+							"en": "Distance",
+							"nl": "Afstand"
+						},
+						"example": 83
+					},
+					{
+						"name": "departure_time",
+						"type": "number",
+						"title": {
+							"en": "Departure time",
+							"nl": "Vertrek tijd"
+						},
+						"example": 83
+					},
+					{
+						"name": "steps",
+						"type": "number",
+						"title": {
+							"en": "steps",
+							"nl": "Tussenstops"
+						},
+						"example": 83
+					}
+				]
+			},
+			{
+				"id": "com_google_maps_directions_drivingDetailsUpdated",
+				"title": {
+					"nl": "De reistijd met de auto is bijgewerkt",
+					"en": "The traveling time with the car was updated"
+				},
+				"tokens": [
+					{
+						"name": "origin",
+						"type": "string",
+						"title": {
+							"en": "Origin",
+							"nl": "Vertrekpunt"
+						},
+						"example": "Dorpstraat 1, Amsterdam"
+					},
+					{
+						"name": "destination",
+						"type": "string",
+						"title": {
+							"en": "Destination",
+							"nl": "Bestemming"
+						},
+						"example": "Dorpstraat 1, Amsterdam"
+					},
+					{
+						"name": "origin",
+						"type": "string",
+						"title": {
+							"en": "Origin",
+							"nl": "Vertrekpunt"
+						},
+						"example": "Dorpstraat 1, Amsterdam"
+					},
+					{
+						"name": "destination",
+						"type": "string",
+						"title": {
+							"en": "Destination",
+							"nl": "Bestemming"
+						},
+						"example": "Dorpstraat 1, Amsterdam"
+					},
+					{
+						"name": "summary",
+						"type": "string",
+						"title": {
+							"en": "Summary",
+							"nl": "Samenvatting"
+						},
+						"example": "Route 66"
+					},
+					{
+						"name": "duration_in_traffic",
+						"type": "number",
+						"title": {
+							"en": "Duration in traffic",
+							"nl": "Reistijd met verkeer"
+						},
+						"example": 56
+					},
+					{
+						"name": "duration",
+						"type": "number",
+						"title": {
+							"en": "Duration",
+							"nl": "Reistijd"
+						},
+						"example": 53
+					},
+					{
+						"name": "distance",
+						"type": "number",
+						"title": {
+							"en": "Distance",
+							"nl": "Afstand"
+						},
+						"example": 83
+					}
+				]
+			},
+			{
+				"id": "com_google_maps_directions_transitDetailsUpdated",
+				"title": {
+					"nl": "De reistijd met openbaar vervoer is bijgewerkt",
+					"en": "The traveling time with tranit was updated"
+				},
+				"tokens": [
+					{
+						"name": "origin",
+						"type": "string",
+						"title": {
+							"en": "Origin",
+							"nl": "Vertrekpunt"
+						},
+						"example": "Dorpstraat 1, Amsterdam"
+					},
+					{
+						"name": "destination",
+						"type": "string",
+						"title": {
+							"en": "Destination",
+							"nl": "Bestemming"
+						},
+						"example": "Dorpstraat 1, Amsterdam"
+					},
+					{
+						"name": "origin",
+						"type": "string",
+						"title": {
+							"en": "Origin",
+							"nl": "Vertrekpunt"
+						},
+						"example": "Dorpstraat 1, Amsterdam"
+					},
+					{
+						"name": "destination",
+						"type": "string",
+						"title": {
+							"en": "Destination",
+							"nl": "Bestemming"
+						},
+						"example": "Dorpstraat 1, Amsterdam"
+					},
+					{
+						"name": "duration",
+						"type": "number",
+						"title": {
+							"en": "Duration",
+							"nl": "Reistijd"
+						},
+						"example": 53
+					},
+					{
+						"name": "departure_time",
+						"type": "number",
+						"title": {
+							"en": "Departure time",
+							"nl": "Vertrek tijd"
+						},
+						"example": 83
+					},
+					{
+						"name": "steps",
+						"type": "number",
+						"title": {
+							"en": "steps",
+							"nl": "Tussenstops"
+						},
+						"example": 83
+					}
+				]
 			}
 		],
 		"actions": [
