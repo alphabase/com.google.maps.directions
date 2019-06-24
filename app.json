@@ -336,6 +336,7 @@
 		],
 		"actions": [
 			{
+				"deprecated": true,
 				"id": "com_google_maps_directions_driving",
 				"title": {
 					"nl": "Bereken reistijd via auto",
@@ -361,6 +362,7 @@
 				]
 			},
   			{
+				"deprecated": true,
 				"id": "com_google_maps_directions_transit",
 				"title": {
 					"nl": "Bereken reistijd via openbaar vervoer",
@@ -382,6 +384,96 @@
 							"en": "Destination",
 							"nl": "Bestemming"
 						}
+					}
+				]
+			},
+			{
+				"id": "com_google_maps_directions_driving",
+				"title": {
+					"nl": "Bereken reistijd via auto",
+					"en": "Determine duration via driving"
+				},
+				"args": [
+					{
+						"name": "origin",
+						"type": "text",
+						"placeholder": {
+							"en": "Origin",
+							"nl": "Vertrekpunt"
+						}
+					},
+					{
+						"name": "destination",
+						"type": "text",
+						"placeholder": {
+							"en": "Destination",
+							"nl": "Bestemming"
+						}
+					},
+					{
+						"type": "dropdown",
+						"name": "sayinfo",
+						"values": [
+							{
+								"id": "yes",
+								"label": {
+									"en": "yes, say the traffic info",
+									"nl": "ja, zeg het verkeer informatie "
+								}
+							},
+							{
+								"id": "no",
+								"label": {
+									"en": "no, don't say the traffic info",
+									"nl": "nee, zeg het verkeer informatie niet"
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"id": "com_google_maps_directions_transit",
+				"title": {
+					"nl": "Bereken reistijd via openbaar vervoer",
+					"en": "Determine duration via transit"
+				},
+				"args": [
+					{
+						"name": "origin",
+						"type": "text",
+						"placeholder": {
+							"en": "Origin",
+							"nl": "Vertrekpunt"
+						}
+					},
+					{
+						"name": "destination",
+						"type": "text",
+						"placeholder": {
+							"en": "Destination",
+							"nl": "Bestemming"
+						}
+					},
+					{
+						"type": "dropdown",
+						"name": "sayinfo",
+						"values": [
+							{
+								"id": "yes",
+								"label": {
+									"en": "yes, say the traffic info",
+									"nl": "ja, zeg het verkeer informatie "
+								}
+							},
+							{
+								"id": "no",
+								"label": {
+									"en": "no, don't say the traffic info",
+									"nl": "nee, zeg het verkeer informatie niet"
+								}
+							}
+						]
 					}
 				]
 			},

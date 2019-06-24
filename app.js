@@ -13,7 +13,7 @@ class GoogleMaps extends Homey.App {
 
 				this.getRoute(args.origin, args.destination, 'driving', function(err, data) {
 					if (!err) {
-						Homey.ManagerSpeechOutput.say(Homey.__('resultsDriving', {'summary': data.summary, 'duration_in_traffic': data.duration_in_traffic, 'distance': data.distance, 'duration': data.duration}));
+						if (args.sayinfo === 'yes') Homey.ManagerSpeechOutput.say(Homey.__('resultsDriving', {'summary': data.summary, 'duration_in_traffic': data.duration_in_traffic, 'distance': data.distance, 'duration': data.duration}));
 
 						let drivingDetailsUpdated = new Homey.FlowCardTrigger('com_google_maps_directions_drivingDetailsUpdated');
 
@@ -46,7 +46,7 @@ class GoogleMaps extends Homey.App {
 
 				this.getRoute(args.origin, args.destination, 'transit', function(err, data) {
 					if (!err) {
-						Homey.Homey.ManagerSpeechOutput.say(Homey.__('resultsTransit', {'duration': data.duration, 'departure_time': data.departure_time, 'steps': data.steps}));
+						if (args.sayinfo === 'yes') Homey.ManagerSpeechOutput.say(Homey.__('resultsTransit', {'duration': data.duration, 'departure_time': data.departure_time, 'steps': data.steps}));
 
 						let transitDetailsUpdated = new Homey.FlowCardTrigger('com_google_maps_directions_transitDetailsUpdated');
 
