@@ -14,7 +14,7 @@
 		"small": "./assets/images/small.jpg"
 	},
 	"category": ["internet","localization"],
-    "version": "1.0.5",
+    "version": "1.0.6",
     "compatibility": ">=1.5.0",
     "author": {
         "name": "Gerard Nijboer",
@@ -36,14 +36,6 @@
 			}
 		]
 	},
-	"contributing": {
-        "donate": {
-            "paypal": {
-                "email": "gerard@alphabase.nl",
-                "currency": "EUR"
-            }
-        }
-    },
     "tags": {
     	"en": ["google", "maps", "directions", "route", "distance", "duration", "car", "transit", "driving", "traffic", "traffic jam"],
     	"nl": ["google", "maps", "navigatie", "route", "afstand", "reistijd", "auto", "openbaar vervoer", "rijden", "verkeer", "file"]
