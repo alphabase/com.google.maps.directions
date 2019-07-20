@@ -1,5 +1,6 @@
 {
     "id": "com.google.maps.directions",
+	"sdk": 2,
     "name": {
         "en": "Google Maps",
         "nl": "Google Maps"
@@ -13,8 +14,8 @@
 		"small": "./assets/images/small.jpg"
 	},
 	"category": ["internet","localization"],
-    "version": "1.0.4",
-    "compatibility": "1.x",
+    "version": "1.0.6",
+    "compatibility": ">=1.5.0",
     "author": {
         "name": "Gerard Nijboer",
         "email": "me@gerardnijboer.com"
@@ -28,17 +29,13 @@
 			{
 				"name": "Jeroen Bos",
 				"email": "jeroenbos22@gmail.com"
+			},
+			{
+				"name": "Stèphan Eizinga",
+				"email": "stephan@monkeysoft.nl"
 			}
 		]
 	},
-	"contributing": {
-        "donate": {
-            "paypal": {
-                "email": "gerard@alphabase.nl",
-                "currency": "EUR"
-            }
-        }
-    },
     "tags": {
     	"en": ["google", "maps", "directions", "route", "distance", "duration", "car", "transit", "driving", "traffic", "traffic jam"],
     	"nl": ["google", "maps", "navigatie", "route", "afstand", "reistijd", "auto", "openbaar vervoer", "rijden", "verkeer", "file"]
@@ -91,6 +88,240 @@
 							"nl": "Afstand"
 						},
 						"example": 83
+					},
+					{
+						"name": "departure_time",
+						"type": "number",
+						"title": {
+							"en": "Departure time",
+							"nl": "Vertrek tijd"
+						},
+						"example": 83
+					},
+					{
+						"name": "steps",
+						"type": "number",
+						"title": {
+							"en": "steps",
+							"nl": "Tussenstops"
+						},
+						"example": 83
+					}
+				]
+			},
+			{
+				"id": "com_google_maps_directions_homeDetailsUpdated",
+				"title": {
+					"nl": "De reistijd naar huis is bijgewerkt",
+					"en": "The traveling time to home was updated"
+				},
+				"tokens": [
+					{
+						"name": "summary",
+						"type": "string",
+						"title": {
+							"en": "Summary",
+							"nl": "Samenvatting"
+						},
+						"example": "Route 66"
+					},
+					{
+						"name": "duration_in_traffic",
+						"type": "number",
+						"title": {
+							"en": "Duration in traffic",
+							"nl": "Reistijd met verkeer"
+						},
+						"example": 56
+					},
+					{
+						"name": "duration",
+						"type": "number",
+						"title": {
+							"en": "Duration",
+							"nl": "Reistijd"
+						},
+						"example": 53
+					},
+					{
+						"name": "distance",
+						"type": "number",
+						"title": {
+							"en": "Distance",
+							"nl": "Afstand"
+						},
+						"example": 83
+					},
+					{
+						"name": "departure_time",
+						"type": "number",
+						"title": {
+							"en": "Departure time",
+							"nl": "Vertrek tijd"
+						},
+						"example": 83
+					},
+					{
+						"name": "steps",
+						"type": "number",
+						"title": {
+							"en": "steps",
+							"nl": "Tussenstops"
+						},
+						"example": 83
+					}
+				]
+			},
+			{
+				"id": "com_google_maps_directions_drivingDetailsUpdated",
+				"title": {
+					"nl": "De reistijd met de auto is bijgewerkt",
+					"en": "The traveling time with the car was updated"
+				},
+				"tokens": [
+					{
+						"name": "origin",
+						"type": "string",
+						"title": {
+							"en": "Origin",
+							"nl": "Vertrekpunt"
+						},
+						"example": "Dorpstraat 1, Amsterdam"
+					},
+					{
+						"name": "destination",
+						"type": "string",
+						"title": {
+							"en": "Destination",
+							"nl": "Bestemming"
+						},
+						"example": "Dorpstraat 1, Amsterdam"
+					},
+					{
+						"name": "origin",
+						"type": "string",
+						"title": {
+							"en": "Origin",
+							"nl": "Vertrekpunt"
+						},
+						"example": "Dorpstraat 1, Amsterdam"
+					},
+					{
+						"name": "destination",
+						"type": "string",
+						"title": {
+							"en": "Destination",
+							"nl": "Bestemming"
+						},
+						"example": "Dorpstraat 1, Amsterdam"
+					},
+					{
+						"name": "summary",
+						"type": "string",
+						"title": {
+							"en": "Summary",
+							"nl": "Samenvatting"
+						},
+						"example": "Route 66"
+					},
+					{
+						"name": "duration_in_traffic",
+						"type": "number",
+						"title": {
+							"en": "Duration in traffic",
+							"nl": "Reistijd met verkeer"
+						},
+						"example": 56
+					},
+					{
+						"name": "duration",
+						"type": "number",
+						"title": {
+							"en": "Duration",
+							"nl": "Reistijd"
+						},
+						"example": 53
+					},
+					{
+						"name": "distance",
+						"type": "number",
+						"title": {
+							"en": "Distance",
+							"nl": "Afstand"
+						},
+						"example": 83
+					}
+				]
+			},
+			{
+				"id": "com_google_maps_directions_transitDetailsUpdated",
+				"title": {
+					"nl": "De reistijd met openbaar vervoer is bijgewerkt",
+					"en": "The traveling time with tranit was updated"
+				},
+				"tokens": [
+					{
+						"name": "origin",
+						"type": "string",
+						"title": {
+							"en": "Origin",
+							"nl": "Vertrekpunt"
+						},
+						"example": "Dorpstraat 1, Amsterdam"
+					},
+					{
+						"name": "destination",
+						"type": "string",
+						"title": {
+							"en": "Destination",
+							"nl": "Bestemming"
+						},
+						"example": "Dorpstraat 1, Amsterdam"
+					},
+					{
+						"name": "origin",
+						"type": "string",
+						"title": {
+							"en": "Origin",
+							"nl": "Vertrekpunt"
+						},
+						"example": "Dorpstraat 1, Amsterdam"
+					},
+					{
+						"name": "destination",
+						"type": "string",
+						"title": {
+							"en": "Destination",
+							"nl": "Bestemming"
+						},
+						"example": "Dorpstraat 1, Amsterdam"
+					},
+					{
+						"name": "duration",
+						"type": "number",
+						"title": {
+							"en": "Duration",
+							"nl": "Reistijd"
+						},
+						"example": 53
+					},
+					{
+						"name": "departure_time",
+						"type": "number",
+						"title": {
+							"en": "Departure time",
+							"nl": "Vertrek tijd"
+						},
+						"example": 83
+					},
+					{
+						"name": "steps",
+						"type": "number",
+						"title": {
+							"en": "steps",
+							"nl": "Tussenstops"
+						},
+						"example": 83
 					}
 				]
 			}
@@ -118,10 +349,30 @@
 							"en": "Destination",
 							"nl": "Bestemming"
 						}
+					},
+					{
+						"type": "dropdown",
+						"name": "sayinfo",
+						"values": [
+							{
+								"id": "yes",
+								"label": {
+									"en": "yes, say the traffic info",
+									"nl": "ja, zeg het verkeer informatie "
+								}
+							},
+							{
+								"id": "no",
+								"label": {
+									"en": "no, don't say the traffic info",
+									"nl": "nee, zeg het verkeer informatie niet"
+								}
+							}
+						]
 					}
 				]
 			},
-  			{
+			{
 				"id": "com_google_maps_directions_transit",
 				"title": {
 					"nl": "Bereken reistijd via openbaar vervoer",
@@ -143,6 +394,26 @@
 							"en": "Destination",
 							"nl": "Bestemming"
 						}
+					},
+					{
+						"type": "dropdown",
+						"name": "sayinfo",
+						"values": [
+							{
+								"id": "yes",
+								"label": {
+									"en": "yes, say the traffic info",
+									"nl": "ja, zeg het verkeer informatie "
+								}
+							},
+							{
+								"id": "no",
+								"label": {
+									"en": "no, don't say the traffic info",
+									"nl": "nee, zeg het verkeer informatie niet"
+								}
+							}
+						]
 					}
 				]
 			},
@@ -151,7 +422,58 @@
 				"title": {
 					"nl": "Reistijd naar werk bijwerken",
 					"en": "Update traveling time to work"
-				}
+				},
+				"args": [
+					{
+						"type": "dropdown",
+						"name": "mode",
+						"values": [
+							{
+								"id": "driving",
+								"label": {
+									"en": "car",
+									"nl": "auto"
+								}
+							},
+							{
+								"id": "transit",
+								"label": {
+									"en": "transit",
+									"nl": "openbaar vervoer"
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"id": "com_google_maps_directions_updateHomeDetails",
+				"title": {
+					"nl": "Reistijd naar huis bijwerken",
+					"en": "Update traveling time to home"
+				},
+				"args": [
+					{
+						"type": "dropdown",
+						"name": "mode",
+						"values": [
+							{
+								"id": "driving",
+								"label": {
+									"en": "car",
+									"nl": "auto"
+								}
+							},
+							{
+								"id": "transit",
+								"label": {
+									"en": "transit",
+									"nl": "openbaar vervoer"
+								}
+							}
+						]
+					}
+				]
 			}
 		]
 	}

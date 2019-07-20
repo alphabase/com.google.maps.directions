@@ -5,6 +5,7 @@ This app has three action cards:
 - One to tell you about traveling details by car from one address to another
 - One to tell you about traveling details by public transport from one address to another
 - One to update the traveling details to a preset work address
+- One to update the traveling details to a home address
 
 The updated traveling details to the work address will be available as tokens in the flow engine.
 Also, a trigger card is available which is triggered whenever the traveling details to work have been updated.
