@@ -14,7 +14,7 @@
 		"small": "./assets/images/small.jpg"
 	},
 	"category": ["internet","localization"],
-    "version": "1.0.6",
+    "version": "2.0.0",
     "compatibility": ">=1.5.0",
     "author": {
         "name": "Gerard Nijboer",
